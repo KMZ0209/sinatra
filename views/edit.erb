@@ -1,0 +1,18 @@
+<form action="/memos/<%= params[:id] %>" method="post" name="edit" class="box">
+<div class="field">
+    <label for="title" class="label is-size-5">タイトル</label>
+    <div class="control">
+        <input type="title" id="title" name="title" class="is-size-6" value="<%= @title %>">
+    </div>
+</div>
+<div class="field">
+    <label for="content" class="label">内容</label>
+    <div class="control">
+        <textarea id="content" name="content" class="textarea"><%= @content %></textarea>
+    </div>
+</div>
+<div class="buttons is-centered">
+    <input type="hidden" name="_method" value="patch">
+    <input type="submit" value="保存" class="button is-primary">
+</div>
+</form>
