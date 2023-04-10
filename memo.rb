@@ -73,3 +73,4 @@ delete '/memos/:id' do
   set_memos(file_path, memos)
   redirect '/memos'
 end
+end
