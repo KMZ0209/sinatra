@@ -2,8 +2,8 @@
     <a href="/memos"><button class="button is-primary">メモ一覧に戻る</button></a>
 </div>
 <div class="box">
-    <p class="label is-size-5 panel-block"><%= @title %></p>
-    <p class="is-size-5 panel-block"><%= @content %></p>
+    <p class="label is-size-5 panel-block"><%= CGI.escapeHTML(@title) %></p>
+    <p class="is-size-5 panel-block"><%= CGI.escapeHTML(@content).gsub(/\n/, '<br/>') %></p>
 </div>
 <div class="field is-grouped">
     <div class="buttons is-centered">
