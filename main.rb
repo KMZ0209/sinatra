@@ -11,6 +11,10 @@ def get_memos(file_path)
   File.open(file_path) { |file| JSON.parse(file.read) }
 end
 
+def set_memos(file_path, memos)
+  File.open(FILE_PATH, 'w') { |file| JSON.dump(memos, file) }
+end
+
 get '/' do
   redirect '/memos'
 end
@@ -35,10 +39,6 @@ get '/memos/:id' do
     status 404
     "Memo with ID #{params[:id]} not found"
   end
-end
-
-def set_memos(file_path, memos)
-  File.open(FILE_PATH, 'w') { |file| JSON.dump(memos, file) }
 end
 
 post '/memos' do
