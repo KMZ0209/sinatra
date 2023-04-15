@@ -15,6 +15,12 @@ def set_memos(file_path, memos)
   File.open(FILE_PATH, 'w') { |file| JSON.dump(memos, file) }
 end
 
+helpers do
+  def h(text)
+    Rack::Utils.escape_html(text)
+  end
+end
+
 get '/' do
   redirect '/memos'
 end
@@ -32,8 +38,8 @@ get '/memos/:id' do
   memos = get_memos(FILE_PATH)
   memo = memos[params[:id].to_s]
   if memo
-    @title = memo['title']
-    @content = memo['content']
+    @title = "#{h(memo['title'])}"
+    @content = "#{h(memo['content'])}"
     erb :show
   else
     status 404
@@ -45,7 +51,7 @@ post '/memos' do
   title = params[:title]
   content = params[:content]
   memos = get_memos(FILE_PATH)
-  id = (memos.keys.map(&:to_i).max + 1).to_s
+  id = ((memos.keys.map(&:to_i).max || 0)+ 1).to_s
   memos[id] = { 'title' => title, 'content' => content }
   set_memos(FILE_PATH, memos)
   redirect '/memos'
