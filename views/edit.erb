@@ -2,13 +2,13 @@
 <div class="field">
     <label for="title" class="label is-size-5">タイトル</label>
     <div class="control">
-        <input type="title" id="title" name="title" class="is-size-6" value="<%= @title %>">
+        <input type="title" id="title" name="title" class="is-size-6" value="<%= h(@title) %>">
     </div>
 </div>
 <div class="field">
     <label for="content" class="label">内容</label>
     <div class="control">
-        <textarea id="content" name="content" class="textarea"><%= @content %></textarea>
+        <textarea id="content" name="content" class="textarea"><%= h(@content) %></textarea>
     </div>
 </div>
 <div class="buttons is-centered">
