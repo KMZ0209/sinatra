@@ -1,0 +1,10 @@
+<ul class="box">
+    <% @memos.each do |id, post| %>
+    <li class="panel-block">
+        <a href="/memos/<%= id %>" class="is-size-5 has-text-dark"><%= h(post["title"]) %></a>
+    </li>
+    <% end %>
+</ul>
+<div class="buttons is-centered">
+    <a href="/memos/new"><button class="button is-primary block">追加</button></a>
+</div>

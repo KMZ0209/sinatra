@@ -1,0 +1,18 @@
+<div class="buttons is-right">
+    <a href="/memos"><button class="button is-primary">メモ一覧に戻る</button></a>
+</div>
+<div class="box">
+    <p class="label is-size-5 panel-block"><%= h(@title) %></p>
+    <p class="is-size-5 panel-block"><%= h(@content) %></p>
+</div>
+<div class="field is-grouped">
+    <div class="buttons is-centered">
+        <form action="/memos/<%= params[:id] %>/edit" method="get">
+            <input type="submit" value="編集" class="button is-primary">
+        </form>
+        <form action="/memos/<%= params[:id] %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="削除" class="button is-primary">
+        </form>
+    </div>
+</div>
