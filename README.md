@@ -7,4 +7,4 @@ Install Dependency
 bundle install
 
 Start App
-ruby memo.rb
+ruby main.rb
