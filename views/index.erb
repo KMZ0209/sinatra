@@ -1,7 +1,7 @@
 <ul class="box">
-    <% @memos.each do |id, post| %>
+    <% @memos.each do |memo| %>
     <li class="panel-block">
-        <a href="/memos/<%= id %>" class="is-size-5 has-text-dark"><%= h(post["title"]) %></a>
+        <a href="/memos/<%= memo["id"] %>" class="is-size-5 has-text-dark"><%= h(memo["title"]) %></a>
     </li>
     <% end %>
 </ul>
